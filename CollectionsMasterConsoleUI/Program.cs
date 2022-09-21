@@ -29,7 +29,7 @@ namespace CollectionsMasterConsoleUI
 
             //DONE Print the last number of the array            
 
-            Console.WriteLine(myArray1[49]);
+            Console.WriteLine(myArray1[myArray1.Length -1]);
 
             Console.WriteLine("-------------------");
             
@@ -44,8 +44,7 @@ namespace CollectionsMasterConsoleUI
             /*  DONE 1) First way, using a custom method => Hint: Array._____(); 
                 DONE 2) Second way, Create a custom method (scroll to bottom of page to find ⬇⬇⬇)
             */
-
-            
+                        
             Console.WriteLine("All Numbers Reversed:");
             Array.Reverse(myArray1);
             NumberPrinter(myArray1);
@@ -81,6 +80,8 @@ namespace CollectionsMasterConsoleUI
             //DONE Create an integer List
             List<int> myList = new List<int>();
 
+            //var mylist = new List<int>();
+
             //DONE Print the capacity of the list to the console
 
             Console.WriteLine(myList.Capacity);
@@ -96,14 +97,26 @@ namespace CollectionsMasterConsoleUI
             Console.WriteLine("---------------------");
 
             //DONECreate a method that prints if a user number is present in the list
-            //TODO:  Remember: What if the user types "abc" accident your app should handle that!
-            Console.WriteLine("What number will you search for in the number list?");
-            var userInput = int.Parse(Console.ReadLine());
-
-            //need to understand TryParse more but that wasn't the focus of this exercise so moved on.  
-            //bool userInput = int.TryParse(Console.ReadLine(), out userInput);
+            //DONE  Remember: What if the user types "abc" accident your app should handle that!
             
-            NumberChecker(myList, userInput);
+            Console.WriteLine("What number will you search for in the number list?");
+            // var userInput = int.Parse(Console.ReadLine());
+            
+            bool couldParse = int.TryParse(Console.ReadLine(), out int x);
+            while (!couldParse)
+            {
+                Console.WriteLine("Incorrect input.  Please try again!");
+                Console.WriteLine();
+
+                Console.WriteLine("What number will you search for in the number list?");
+                couldParse = int.TryParse(Console.ReadLine(), out x);
+
+                Console.WriteLine();
+            }
+
+                  
+            
+            NumberChecker(myList, x);
 
             Console.WriteLine("-------------------");
 
@@ -130,7 +143,7 @@ namespace CollectionsMasterConsoleUI
             Console.WriteLine("------------------");
 
             //DONE: Convert the list to an array and store that into a variable
-            int[] array = myList.ToArray();
+            var arrayFromList = myList.ToArray();
 
             //DONE: Clear the list
             myList.Clear();
@@ -195,7 +208,7 @@ namespace CollectionsMasterConsoleUI
             Random rng = new Random();
             for (int i = 0; i < 50; i++)
             {
-                numberList.Add(rng.Next(0, 50));
+                numberList.Add(rng.Next(0, 51));
             }
             
         }
@@ -206,7 +219,7 @@ namespace CollectionsMasterConsoleUI
             Random rng = new Random();
             for (int i = 0; i < numbers.Length; i++)
             {
-                numbers[i] = rng.Next(0, 50);
+                numbers[i] = rng.Next(0, 51);
             }
             
         }
@@ -215,6 +228,7 @@ namespace CollectionsMasterConsoleUI
         private static int[] ReverseArray(int[] array) 
         {
             int[] myReverse = new int[array.Length]; 
+
             for (int i = 0; i < array.Length; i++)
             {
                 myReverse[i] = array[array.Length-1-i];
