@@ -99,6 +99,8 @@ namespace CollectionsMasterConsoleUI
             //TODO:  Remember: What if the user types "abc" accident your app should handle that!
             Console.WriteLine("What number will you search for in the number list?");
             var userInput = int.Parse(Console.ReadLine());
+
+            //need to understand TryParse more but that wasn't the focus of this exercise so moved on.  
             //bool userInput = int.TryParse(Console.ReadLine(), out userInput);
             
             NumberChecker(myList, userInput);
@@ -220,7 +222,7 @@ namespace CollectionsMasterConsoleUI
             return myReverse;
         }
 
-        //Methods.ReverseArray(MyArray1));
+        
 
 
         /// <summary>
