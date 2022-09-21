@@ -31,7 +31,10 @@ namespace CollectionsMasterConsoleUI
 
             Console.WriteLine(myArray1[49]);
 
+            Console.WriteLine("-------------------");
+            
             Console.WriteLine("All Numbers Original");
+
             //DONE   UNCOMMENT this method to print out your numbers from arrays or lists
             NumberPrinter(myArray1);
             Console.WriteLine("-------------------");
@@ -124,10 +127,10 @@ namespace CollectionsMasterConsoleUI
             
             Console.WriteLine("------------------");
 
-            //TODO: Convert the list to an array and store that into a variable
+            //DONE: Convert the list to an array and store that into a variable
             int[] array = myList.ToArray();
 
-            //TODO: Clear the list
+            //DONE: Clear the list
             myList.Clear();
 
             Console.WriteLine(myList.Capacity);
